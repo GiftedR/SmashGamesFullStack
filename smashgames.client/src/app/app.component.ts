@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+import { BehaviorSubject } from 'rxjs';
+import { Meta } from './Models/meta';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+
+  studio: BehaviorSubject<Meta> = this.data.studio;
+
+  constructor(private http: HttpClient, private data:DataService) {}
 
   ngOnInit(): void {
 
