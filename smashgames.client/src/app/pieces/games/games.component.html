@@ -1,0 +1,7 @@
+<ul class="list-group" *ngFor="let Studio of (studio$ | async)!">
+  <li *ngIf="" >{{ Studio.value }}</li>
+</ul>
+
+
+
+<pre>{{ studio$ | async | json }}</pre>

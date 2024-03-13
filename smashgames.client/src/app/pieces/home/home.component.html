@@ -1,0 +1,10 @@
+<h1>Welcome to {{ (studio$ | async)!.name }}</h1>
+<p>{{ (studio$ | async)!.description }}</p>
+
+<ul class="list-group">
+  <li class="list-item" *ngFor="let Game of (studio$ | async)!.games.$values">{{ Game.title }}</li>
+</ul>
+
+<!--<pre>{{ games$ | async | json }} </pre>-->
+<hr />
+<pre>{{ studio$ | async | json }}</pre>
