@@ -5,12 +5,13 @@ export interface featureObject {
 }
 
 export interface Game {
+  gameID:number,
   title: string,
   description: string,
-  shortdescription: string,
-  imageurl: string,
-  releasedate: Date,
-  createddate: Date,
-  updateddate: Date,
+  shortDescription: string,
+  imageUrl: string,
+  releaseDate: Date,
+  createdDate: Date,
+  updatedDate: Date,
   features: featureObject
 }

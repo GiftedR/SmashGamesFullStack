@@ -9,6 +9,8 @@ import { Game } from './Models/game';
 })
 export class DataService {
 
+  studios$: BehaviorSubject<Studio[]> = new BehaviorSubject<Studio[]>([]);
+
   studio$: BehaviorSubject<Studio> = new BehaviorSubject<Studio>({
     name: '',
     description: '',
@@ -20,13 +22,14 @@ export class DataService {
   games$: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
 
   game$: BehaviorSubject<Game> = new BehaviorSubject<Game>({
+    gameID: 0,
     title: '',
     description: '',
-    shortdescription: '',
-    imageurl: '',
-    releasedate: new Date,
-    createddate: new Date,
-    updateddate: new Date,
+    shortDescription: '',
+    imageUrl: '',
+    releaseDate: new Date,
+    createdDate: new Date,
+    updatedDate: new Date,
     features: {
       $values: []
     }
@@ -35,10 +38,13 @@ export class DataService {
   constructor(private http: HttpClient) {
     this.getStudioById(1);
     this.getGameById(3);
+    this.getAllStudios();
   }
 
-  getAllStudios(): Observable<Studio[]> {
-    return this.http.get<Studio[]>("/api/Studios");
+  getAllStudios() {
+    this.http.get<Studio[]>("/api/Studios").subscribe(data => {
+      this.studios$.next(data);
+    });
   }
 
   getStudioById(id: number) {

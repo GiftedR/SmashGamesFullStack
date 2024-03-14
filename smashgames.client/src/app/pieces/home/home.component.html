@@ -1,10 +1,34 @@
-<h1>Welcome to {{ (studio$ | async)!.name }}</h1>
-<p>{{ (studio$ | async)!.description }}</p>
-
-<ul class="list-group">
-  <li class="list-item" *ngFor="let Game of (studio$ | async)!.games.$values">{{ Game.title }}</li>
-</ul>
-
-<!--<pre>{{ games$ | async | json }} </pre>-->
+<header class="text-center bg-tertiary">
+  <h1 class="p-3">Welcome to {{ (studio$ | async)!.name }}</h1>
+  <h5>{{ (studio$ | async)!.description }}</h5>
+</header>
+<main class="container-fluid text-center">
+  <article class="container-fluid p-3 bg-secondary-subtle border border-secondary rounded-5 my-5">
+    <span class="container-lg d-block">At Smash Games, we know that gaming isn't just a hobby – it's a passion. We believe that video games have the power to transport players to new worlds, to tell stories, and to provide an escape from the everyday. That's why we've made it our mission to create high-intensity, action-packed video games that are as immersive as they are thrilling.</span>
+  </article>
+  <article class="container-fluid p-3 bg-secondary-subtle border border-secondary rounded-5 my-5">
+    <span class="container-lg d-block">
+      Founded by a team of seasoned game developers and passionate gamers, Smash Games is the result of a shared dream to create games that challenge and excite players. With years of experience in the industry, our team knows what it takes to create games that keep players engaged, and we're committed to bringing that expertise to every game we create.
+    </span>
+  </article>
+  <article class="container-fluid p-3 bg-secondary-subtle border border-secondary rounded-5 my-5">
+    <span class="container-lg d-block">
+      At Smash Games, we're driven by a love of gaming and a desire to push the boundaries of what's possible in the industry. Our team is constantly experimenting with new technology and gameplay mechanics, always striving to create games that are as innovative as they are entertaining.
+    </span>
+  </article>
+  <article class="container-fluid p-3 bg-secondary-subtle border border-secondary rounded-5 my-5">
+    <span class="container-lg d-block">
+      But at the end of the day, what matters most to us is our players. We're dedicated to creating games that provide an escape, an opportunity to let go of the stresses of daily life and lose oneself in a world of high-octane action and adventure. We believe that gaming is more than just entertainment – it's a way to connect with others, to explore new worlds, and to experience the thrill of the unknown.
+    </span>
+  </article>
+  <article class="container-fluid p-3 bg-secondary-subtle border border-secondary rounded-5 my-5">
+    <span class="container-lg d-block">
+      So whether you're a seasoned gamer or new to the world of video games, we invite you to join us on this journey. Let Smash Games take you on an adventure that will leave you breathless and energized – we promise, it'll be an experience you won't soon forget.
+    </span>
+  </article>
+</main>
 <hr />
-<pre>{{ studio$ | async | json }}</pre>
+<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li><pre>{{ studio$ | async | json }}</pre></li>
+</ul>

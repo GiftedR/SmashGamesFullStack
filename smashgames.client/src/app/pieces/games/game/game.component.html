@@ -1,3 +1,84 @@
-<p>game works!</p>
+<div class="text-center">
+  <header>
+    <span class="fs-1">{{ (game | async)!.title}}</span>
+  </header>
+  <span>
+    {{ (game | async)!.shortDescription }}
+  </span>
+  <div class="container-fluid my-3">
+    <img src="(game | async)!.imageUrl" />
+  </div>
+  <article class="container-lg mx-auto p-3 bg-secondary-subtle border border-secondary rounded-5 mb-3">
+    <span class="container-lg d-block">
+      {{ (game | async)!.description }}
+    </span>
+  </article>
+  <article class="container-lg mx-auto p-3 bg-secondary-subtle border border-secondary rounded-5 mb-3 row">
+    <div class="col card bg-primary-subtle" *ngFor="let GameFeatures of (game | async)!.features.$values">
+      <h5 class="card-header">{{ GameFeatures.name }}</h5>
+      <div class="card-body">
+        <p class="card-text">{{ GameFeatures.description }}</p>
+      </div>
+    </div>
+  </article>
+  <article class="container-lg p-3 bg-secondary-subtle border border-secondary rounded-5 mb-3">
+    <span>Requirements:</span>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Part:</th>
+          <th scope="col">Minimum:</th>
+          <th scope="col">Reccomended:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><b>OS:</b></th>
+          <td>Windows 7</td>
+          <td>Windows 11</td>
+        </tr>
+        <tr>
+          <th scope="row"><b>Processor:</b></th>
+          <td>Intel Core i3 or Ryzen 3 or equivalent</td>
+          <td>Intel Core i9 or Ryzen 7 or equivalent</td>
+        </tr>
+        <tr>
+          <th scope="row"><b>RAM:</b></th>
+          <td>8GB DDR3</td>
+          <td>16GB DDR4</td>
+        </tr>
+        <tr>
+          <th scope="row"><b>Graphics:</b></th>
+          <td>Geforce GTX 570</td>
+          <td>Geforce RTX 2080</td>
+        </tr>
+        <tr>
+          <th scope="row"><b>Storage:</b></th>
+          <td>1GB Open Space on Hard Disk Drive</td>
+          <td>5GB Open Space on Solid State Drive</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
 
-<pre>{{ game | async | json }}</pre>
+  <div class="row gx-3 container-lg bg-secondary-subtle p-3 mx-auto border border-secondary rounded-5">
+    <div class="col-4 card">
+      <span class="fs-5">Release Date:</span>
+      <span> {{ (game | async)!.releaseDate }}</span>
+    </div>
+    <div class="col-4 card">
+      <span class="fs-5">Created Date:</span>
+      <span> {{ (game | async)!.releaseDate }}</span>
+    </div>
+    <div class="col-4 card">
+      <span class="fs-5">Last Updated:</span>
+      <span> {{ (game | async)!.releaseDate }}</span>
+    </div>
+  </div>
+</div>
+
+<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li><pre>{{ game | async | json }}</pre></li>
+</ul>
+

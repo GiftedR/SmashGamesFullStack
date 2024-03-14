@@ -1,0 +1,15 @@
+/*
+Midnight Green - #003638
+Atomic Tangerine - #F2A183
+White - #FFFFFF
+*/
+
+$color-mode-type: media-query;
+
+$primary: #F2A183 !default;
+$secondary: #003638 !default;
+$text-dark: #eee !default;
+$text-light: #111 !default;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+

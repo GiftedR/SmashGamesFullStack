@@ -1,7 +1,22 @@
-<ul class="list-group" *ngFor="let Studio of (studio$ | async)!">
-  <li *ngIf="" >{{ Studio.value }}</li>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 card bg-primary-subtle" *ngFor="let Game of (studio$ | async)!.games.$values">
+      <h5 class="card-header">{{ Game.title }}</h5>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{ Game.shortDescription }}</h6>
+        <p class="card-text">{{ Game.description }}</p>
+        <b>Features:</b>
+        <ul class="list-group">
+          <li class="list-group-item bg-secondary-subtle" *ngFor="let GameFeature of Game.features.$values">{{ GameFeature.name }}</li>
+        </ul>
+        <a routerLink="{{ Game.gameID }}" class="card-link btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Show Raw Data</a>
+<ul class="dropdown-menu">
+  <li><pre>{{ studio$ | async | json }}</pre></li>
 </ul>
-
-
-
-<pre>{{ studio$ | async | json }}</pre>
